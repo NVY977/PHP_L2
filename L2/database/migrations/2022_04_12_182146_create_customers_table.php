@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -26,35 +25,27 @@ return new class extends Migration
             $table->timestamps();
         });
         // Проверить что данные появились в БД
-        if(Schema::hasTable('customers'))
-        {
+        if (Schema::hasTable('customers')) {
             echo "table customers: true\n";
-            if (Schema::hasColumn('customers', 'id'))
-            {
+            if (Schema::hasColumn('customers', 'id')) {
                 echo "column 'id': true\n";
             }
-            if (Schema::hasColumn('customers', 'name'))
-            {
+            if (Schema::hasColumn('customers', 'name')) {
                 echo "column 'name': true\n";
             }
-            if (Schema::hasColumn('customers', 'block'))
-            {
+            if (Schema::hasColumn('customers', 'block')) {
                 echo "column 'block': true\n";
             }
-            if (Schema::hasColumn('customers', 'surname'))
-            {
+            if (Schema::hasColumn('customers', 'surname')) {
                 echo "column 'surname': true\n";
             }
-            if (Schema::hasColumn('customers', 'email'))
-            {
+            if (Schema::hasColumn('customers', 'email')) {
                 echo "column 'email': true\n";
             }
-            if (Schema::hasColumn('customers', 'phone'))
-            {
+            if (Schema::hasColumn('customers', 'phone')) {
                 echo "column 'phone': true\n";
             }
-            if (Schema::hasColumn('customers', 'reg'))
-            {
+            if (Schema::hasColumn('customers', 'reg')) {
                 echo "column 'reg': true\n";
             }
         }

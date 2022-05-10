@@ -5,11 +5,11 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
-use \App\Models\Address;
+use App\Models\Address;
 
 class CountAddresses extends Command
 {
-    //Свойство $signature также позволяет определять вводимые данные. Метод handle будет вызываться при выполнении команды. 
+    //Свойство $signature также позволяет определять вводимые данные. Метод handle будет вызываться при выполнении команды.
     /**
      * The name and signature of the console command.
      *
@@ -32,11 +32,10 @@ class CountAddresses extends Command
     public function handle()
     {
         $id = $this->argument('id');
-        if(Address::where('id', $id)->exists()){
+        if (Address::where('id', $id)->exists()) {
             $add_id = Address::findOrFail($id);
             $this->info($add_id->articles->count());
-        }
-        else{
+        } else {
             $this->info("404: {$id}");
         }
         return 0;

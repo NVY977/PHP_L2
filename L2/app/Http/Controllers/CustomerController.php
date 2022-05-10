@@ -21,7 +21,7 @@ class CustomerController extends Controller
         $customerQuery->when($name, function ($query) use ($request) {
             $query->where('name', $request->name);
         });
-        $customerQuery->when($surname , function ($query) use ($request) {
+        $customerQuery->when($surname, function ($query) use ($request) {
             $query->where('surname', $request->surname);
         });
         $customerQuery->when($email, function ($query) use ($request) {
@@ -30,7 +30,7 @@ class CustomerController extends Controller
         $customerQuery->when($phone, function ($query) use ($request) {
             $query->where('phone', $request->phone);
         });
-        $customerQuery->when($block , function ($query) use ($request) {
+        $customerQuery->when($block, function ($query) use ($request) {
             $query->where('block', $request->block);
         });
         $customerQuery->when($reg, function ($query) use ($request) {
@@ -47,7 +47,7 @@ class CustomerController extends Controller
     {
         $customers = DB::table('customers')->where('id', '=', $id)->get();
         $addresses = DB::table('addresses')->where('customer_id', '=', $id)->orderByRaw('reg DESC')->get();
-        if(count($addresses)==0){
+        if (count($addresses)==0) {
             abort(404, 'Page not found');
         }
         return view('customers_sort_by_address', ['customers' => $customers, 'addresses' => $addresses]);
